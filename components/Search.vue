@@ -1,0 +1,342 @@
+<template>
+  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
+    <b-row class="px-4 mb-2" style="color: #fafafa">
+      <b-col class="col-12 text-center">
+        <div class="d-flex align-items-end">
+          <div
+            v-for="(val, key) in rangeOptions"
+            :key="key"
+            class="my-2 mx-1 text-center"
+            style="width: 20%"
+          >
+            <div v-if="parameter[2].value===val.value">
+              <b-button
+                v-model="parameter[2].value"
+                type="radio"
+                style="border: none; font-size: 24px; background-color: rgba(0, 0, 0, 0)"
+                class="btneffect p-0"
+                size="lg"
+                @click="parameter[2].value=val.value"
+              >
+                {{ val.text }}
+              </b-button>
+            </div>
+            <div v-else>
+              <b-button
+                v-model="parameter[2].value"
+                type="radio"
+                style="border: none; font-size: 14px; background-color: rgba(0, 0, 0, 0); color: #757575"
+                class="p-0 btneffect"
+                @click="parameter[2].value=val.value"
+              >
+                {{ val.text }}
+              </b-button>
+            </div>
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+    <b-row class="mx-4 my-2">
+      <b-col class="text-center">
+        <div v-b-toggle.detail @click="detailOpen = !detailOpen">
+          <p
+            class="mb-0"
+            style="color: #fafafa; font-size: 14px"
+          >
+            こだわり条件を追加
+          </p>
+          <fa v-if="!detailOpen" :icon="faAngleDown" class="my-0" style="color: #fafafa; font-size: 14px" />
+          <fa v-else :icon="faAngleUp" class="my-0" style="color: #fafafa; font-size: 14px" />
+        </div>
+        <b-collapse id="detail" class="card px-3 py-4 mt-0" style="box-shadow: 0 0 0">
+          <div class="text-left" style="min-height: 200px; font-size: 14px">
+            <div>
+              <p class="mb-1">フリーワード</p>
+              <div class="d-flex">
+                <b-form-input
+                  v-model="parameter[3].value"
+                  class="wordform"
+                  style="border-radius: 7px; font-size: 14px"
+                  placeholder="新宿 居酒屋"
+                />
+                <b-button
+                  class="ml-2 detailbtn"
+                  style="border-color: dimgrey; color: dimgrey; white-space: nowrap"
+                  variant="outline-secondary"
+                  @click="parameter[3].value=null"
+                >
+                  クリア
+                </b-button>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="mb-1">メニューにこだわる</p>
+              <div class="d-flex">
+                <div>
+                  <b-button v-if="parameter[4].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[4].value='1'">
+                    コース料理
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[4].value='0'">
+                    コース料理
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[5].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[5].value='1'">
+                    飲み放題
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[5].value='0'">
+                    飲み放題
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[6].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[6].value='1'">
+                    食べ放題
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[6].value='0'">
+                    食べ放題
+                  </b-button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="mb-1">お酒にこだわる</p>
+              <div class="d-flex">
+                <div>
+                  <b-button v-if="parameter[7].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[7].value='1'">
+                    カクテル
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[7].value='0'">
+                    カクテル
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[8].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[8].value='1'">
+                    焼酎
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[8].value='0'">
+                    焼酎
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[9].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[9].value='1'">
+                    日本酒
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[9].value='0'">
+                    日本酒
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[10].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[10].value='1'">
+                    ワイン
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[10].value='0'">
+                    ワイン
+                  </b-button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="mb-1">その他</p>
+              <div class="d-flex">
+                <div>
+                  <b-button v-if="parameter[11].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[11].value='1'">
+                    個室あり
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[11].value='0'">
+                    個室あり
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[12].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[12].value='1'">
+                    ランチあり
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[12].value='0'">
+                    ランチあり
+                  </b-button>
+                </div>
+                <div>
+                  <b-button v-if="parameter[13].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[13].value='1'">
+                    23時以降営業
+                  </b-button>
+                  <b-button v-else class="detailbtn checked mx-1" @click="parameter[13].value='0'">
+                    23時以降営業
+                  </b-button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <p class="mb-1">並び順</p>
+              <div class="d-flex">
+                <div>
+                  <b-button v-if="!parameter[14].value" class="detailbtn checked mx-1">
+                    近い順
+                  </b-button>
+                  <b-button v-else class="detailbtn unchecked mx-1" @click="parameter[14].value=null">
+                    近い順
+                  </b-button>
+                  <b-button v-if="parameter[14].value==='4'" class="detailbtn checked mx-1">
+                    おすすめ順
+                  </b-button>
+                  <b-button v-else class="detailbtn unchecked mx-1" @click="parameter[14].value='4'">
+                    おすすめ順
+                  </b-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </b-collapse>
+      </b-col>
+    </b-row>
+    <b-row class="px-4 my-3">
+      <b-col class="text-center">
+        <b-button
+          variant="primary"
+          class="searchbtn"
+          @click="getlocation()"
+        >
+          検索
+          <fa :icon="faSearch" class="ml-1" style="font-size: 14px" />
+        </b-button>
+      </b-col>
+    </b-row>
+  </div>
+</template>
+
+<script>
+import { faSearch, faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+export default {
+  name: 'Search',
+  data () {
+    return {
+      loaded: true,
+      parameter: [
+        { item: 'lat', value: '0' },
+        { item: 'lng', value: '0' },
+        { item: 'range', value: '1' },
+        { item: 'keyword', value: null },
+        { item: 'course', value: '0' },
+        { item: 'free_drink', value: '0' },
+        { item: 'free_food', value: '0' },
+        { item: 'cocktail', value: '0' },
+        { item: 'shochu', value: '0' },
+        { item: 'sake', value: '0' },
+        { item: 'wine', value: '0' },
+        { item: 'private_room', value: '0' },
+        { item: 'lunch', value: '0' },
+        { item: 'midnight', value: '0' },
+        { item: 'order', value: null }
+      ],
+      rangeOptions: [
+        { text: '300m', value: '1' },
+        { text: '500m', value: '2' },
+        { text: '1km', value: '3' },
+        { text: '2km', value: '4' },
+        { text: '3km', value: '5' }
+      ],
+      geoOption: {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      },
+      detailOpen: false
+    }
+  },
+  computed: {
+    faSearch () {
+      return faSearch
+    },
+    faAngleUp () {
+      return faAngleUp
+    },
+    faAngleDown () {
+      return faAngleDown
+    }
+  },
+  methods: {
+    getlocation () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.parameter[0].value = position.coords.latitude.toString()
+            this.parameter[1].value = position.coords.longitude.toString()
+            this.doSearch()
+          },
+          () => {
+            this.$bvToast.toast('位置情報の取得に失敗しました。もう一度読み込んでください。', {
+              variant: 'danger',
+              solid: true
+            })
+          }, this.geoOption
+        )
+      }
+    },
+    doSearch () {
+      this.$store.dispatch('resultSelect', null)
+      if (this.parameter[3].value) {
+        this.parameter[3].value = this.parameter[3].value.replace(/\s+|，/g, ',')
+      }
+      let url = ''
+      for (let i = 0; i < this.parameter.length; i++) {
+        if (this.parameter[i].value !== '0' && this.parameter[i].value) {
+          url += `&${this.parameter[i].item}=${this.parameter[i].value}`
+        }
+      }
+      url += '&format=json'
+      console.log(url)
+      this.$store.dispatch('searchSpot', url)
+    }
+  }
+}
+</script>
+
+<style scoped>
+.card {
+  background-color: #fafafa;
+  border-radius: 10px;
+  border: none;
+  box-shadow:0 7px 10px #B25F00;
+}
+.btneffect {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  cursor: pointer;
+  outline: none;
+}
+.btneffect:active,
+.btneffect:hover,
+.btneffect:focus {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  box-shadow: none !important;
+}
+.detailbtn {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-size: 12px;
+  border: 1px solid #007bff;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none !important;
+}
+.checked {
+  background-color: #007bff;
+  color: #fafafa;
+}
+.unchecked {
+  background-color: transparent;
+  color: #007bff;
+}
+.searchbtn {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-size: 16px;
+  padding: 8px 20px;
+  border: 1px solid #007bff;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  box-shadow:0 7px 10px #B25F00;
+}
+.wordform::placeholder {
+  color: darkgray;
+}
+</style>
