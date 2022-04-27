@@ -9,6 +9,10 @@ export default {
     base: '/restaurant-search/'
   },
 
+  generate: {
+    dir: 'docs'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'restaurant-search',
