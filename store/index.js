@@ -43,7 +43,7 @@ export const mutations = {
 export const actions = {
   async getSpot ({ commit }, { parameter, pageNum }) {
     // const result = await this.$axios.$get('https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`)
-    const result = await this.$axios.$get('/api/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`) // ローカル環境
+    const result = await this.$axios.$get('hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`) // ローカル環境
     let pages
     console.log(result)
     if (result.results.results_available % 10 === 0) {

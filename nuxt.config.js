@@ -59,16 +59,18 @@ export default {
     'nuxt-fontawesome'
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true
-  },
+  // Axios module configuration: https://go.nuxtjs.dev/config-axio
 
   proxy: {
     '/api/': {
       target: 'http://webservice.recruit.co.jp/',
       pathRewrite: { '^/api/': '' }
     }
+  },
+
+  axios: {
+    // proxy: true
+    prexix: '/api/'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
