@@ -36,7 +36,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-4 my-2">
+    <b-row class="mx-2 my-2">
       <b-col class="text-center">
         <div v-b-toggle.detail @click="detailOpen = !detailOpen">
           <p
