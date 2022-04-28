@@ -43,8 +43,6 @@ export const mutations = {
 export const actions = {
   async getSpot ({ commit }, { parameter, pageNum }) {
     const jsonpAdapter = require('axios-jsonp')
-    // const result = await this.$axios.$get('https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`)
-    // const result = await this.$axios.$get('/api/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`) // ローカル環境
     await this.$axios({
       url: 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`,
       adapter: jsonpAdapter
