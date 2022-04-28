@@ -70,7 +70,7 @@ export default {
 
   axios: {
     // proxy: true
-    prexix: '/api/'
+    prefix: '/api/'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
