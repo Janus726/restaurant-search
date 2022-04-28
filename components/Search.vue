@@ -282,7 +282,7 @@ export default {
           url += `&${this.parameter[i].item}=${this.parameter[i].value}`
         }
       }
-      url += '&format=json'
+      url += '&format=jsonp'
       console.log(url)
       this.$store.dispatch('searchSpot', url)
     }

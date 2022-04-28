@@ -61,16 +61,26 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axio
 
+  // proxy: {
+  //   '/api/': {
+  //     target: 'http://webservice.recruit.co.jp/',
+  //     pathRewrite: { '^/api/': '' }
+  //   }
+  // },
+  //
+  // axios: {
+  //   // proxy: true
+  //   prefix: '/api/'
+  // },
+  axios: {
+    proxy: true
+  },
+
   proxy: {
     '/api/': {
       target: 'http://webservice.recruit.co.jp/',
-      pathRewrite: { '^/api/': '' }
+      changeOrigin: true
     }
-  },
-
-  axios: {
-    // proxy: true
-    prefix: '/api/'
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

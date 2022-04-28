@@ -91,7 +91,7 @@ export default {
       )
     },
     async searchSpot () {
-      const url = `&lat=${this.location.lat}&lng=${this.location.lng}&range=1&format=json`
+      const url = `&lat=${this.location.lat}&lng=${this.location.lng}&range=1&format=jsonp`
       await this.$store.dispatch('searchSpot', url)
       console.log(this.$store.getters.result.results)
       console.log(this.$store.getters.pages)

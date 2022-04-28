@@ -42,18 +42,27 @@ export const mutations = {
 
 export const actions = {
   async getSpot ({ commit }, { parameter, pageNum }) {
+    const jsonpAdapter = require('axios-jsonp')
     // const result = await this.$axios.$get('https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`)
-    const result = await this.$axios.$get('hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`) // ローカル環境
-    let pages
-    console.log(result)
-    if (result.results.results_available % 10 === 0) {
-      pages = Math.floor(result.results.results_available / 10)
-    } else {
-      pages = Math.floor(result.results.results_available / 10) + 1
-    }
-    commit('setResult', result)
-    commit('setPages', pages)
-    commit('setLength', result.results.results_available)
+    // const result = await this.$axios.$get('/api/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`) // ローカル環境
+    await this.$axios({
+      url: 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=0e89a77b5a90087c' + parameter + `&start=${pageNum.toString()}`,
+      adapter: jsonpAdapter
+    }).then((response) => {
+      const result = response.data
+      let pages
+      console.log(result)
+      if (result.results.results_available % 10 === 0) {
+        pages = Math.floor(result.results.results_available / 10)
+      } else {
+        pages = Math.floor(result.results.results_available / 10) + 1
+      }
+      commit('setResult', result)
+      commit('setPages', pages)
+      commit('setLength', result.results.results_available)
+    }).catch((_error) => {
+      console.log('エラーが発生しました', _error)
+    })
   },
   async searchSpot ({ dispatch, commit }, parameter) {
     const start = 1
