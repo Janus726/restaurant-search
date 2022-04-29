@@ -70,15 +70,15 @@
           <p class="item">メモ</p>
           <p class="item-detail">{{ data.shop_detail_memo }}</p>
         </div>
-        <div class="d-flex mt-4">
-          <div class="otheritem mx-1">{{ data.genre.name }}</div>
-          <div v-if="data.free_drink==='あり'" class="otheritem mx-1">飲み放題</div>
-          <div v-if="data.free_food==='あり'" class="otheritem mx-1">食べ放題</div>
-          <div v-if="data.course==='あり'" class="otheritem mx-1">コース料理</div>
-          <div v-if="data.midnight==='営業している'" class="otheritem mx-1">23時以降営業</div>
-          <div v-if="data.lunch==='あり'" class="otheritem mx-1">ランチ</div>
-          <div v-if="data.karaoke==='あり'" class="otheritem mx-1">カラオケあり</div>
-          <div v-if="data.pet==='可'" class="otheritem mx-1">ペットOK</div>
+        <div class="d-flex mt-4 row">
+          <div class="otheritem m-1">{{ data.genre.name }}</div>
+          <div v-if="data.free_drink==='あり'" class="otheritem m-1">飲み放題</div>
+          <div v-if="data.free_food==='あり'" class="otheritem m-1">食べ放題</div>
+          <div v-if="data.course==='あり'" class="otheritem m-1">コース料理</div>
+          <div v-if="data.midnight==='営業している'" class="otheritem m-1">23時以降営業</div>
+          <div v-if="data.lunch==='あり'" class="otheritem m-1">ランチ</div>
+          <div v-if="data.karaoke==='あり'" class="otheritem m-1">カラオケあり</div>
+          <div v-if="data.pet==='可'" class="otheritem m-1">ペットOK</div>
         </div>
       </b-col>
     </b-row>
@@ -161,7 +161,7 @@ export default {
 <style scoped>
 .detail {
   /*min-height: 31rem;*/
-  height: 43rem;
+  height: calc(100% - 5rem);
   width: 100%;
   background-color: #fafafa;
   border: none;
@@ -172,7 +172,7 @@ export default {
 }
 @keyframes anim {
   0% {
-    transform: translateY(43rem);
+    transform: translateY(calc(100% - 5rem));
   }
   100% {
     transform: translateY(0);

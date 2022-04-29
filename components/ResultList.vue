@@ -12,7 +12,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2" style="height: 25rem; overflow: auto; border-radius: 14px">
+    <b-row class="mx-2" style="height: 52vh; overflow: auto; border-radius: 14px">
       <b-col class="justify-content-center">
         <div
           v-for="(val, key) in restaurantList"

@@ -3,6 +3,7 @@
     <b-container class="px-0">
       <div class="d-flex mx-4 align-items-end">
         <b-button
+          type="radio"
           class="mx-auto btneffect no-active"
           :class="{active: searchMode}"
           @click="searchMode=true"
@@ -10,6 +11,7 @@
           近くのお店を探す
         </b-button>
         <b-button
+          type="radio"
           class="mx-auto btneffect no-active"
           :class="{active: !searchMode}"
           @click="searchMode=false"
@@ -17,19 +19,19 @@
           ブックマーク
         </b-button>
       </div>
-      <div v-if="searchMode">
-        <Search />
+      <div v-if="searchMode" style="height: 100%">
+        <Search style="min-height: 11rem" />
         <ResultList v-if="searched" />
         <ResultDetail
           v-if="$store.getters.selectedResult"
-          style="position: absolute; bottom: 0px"
+          style="position: absolute; bottom: 0; left: 0"
         />
       </div>
       <div v-else>
         <Bookmark />
         <ResultDetail
           v-if="$store.getters.selectedResult"
-          style="position: absolute; bottom: 0px"
+          style="position: absolute; bottom: 0; left: 0"
         />
       </div>
       <Footer />
@@ -120,6 +122,8 @@ export default {
 }
 .btneffect {
   -webkit-tap-highlight-color:rgba(0,0,0,0);
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   outline: none;
 }

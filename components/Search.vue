@@ -38,17 +38,23 @@
     </b-row>
     <b-row class="mx-2 my-2">
       <b-col class="text-center">
-        <div v-b-toggle.detail @click="detailOpen = !detailOpen">
+        <div @click="$store.dispatch('menuDetail', 'toggle')">
           <p
             class="mb-0"
             style="color: #fafafa; font-size: 14px"
           >
-            こだわり条件を追加
+            検索条件を追加
           </p>
           <fa v-if="!detailOpen" :icon="faAngleDown" class="my-0" style="color: #fafafa; font-size: 14px" />
           <fa v-else :icon="faAngleUp" class="my-0" style="color: #fafafa; font-size: 14px" />
         </div>
-        <b-collapse id="detail" class="card px-3 py-4 mt-0" style="box-shadow: 0 0 0">
+        <b-collapse
+          id="detail"
+          v-model="detailOpen"
+          :aria-expanded="detailOpen ? 'true' : 'false'"
+          class="card px-3 py-4 mt-0"
+          style="box-shadow: 0 0 0"
+        >
           <div class="text-left" style="min-height: 200px; font-size: 14px">
             <div>
               <p class="mb-1">フリーワード</p>
@@ -70,7 +76,7 @@
               </div>
             </div>
             <div class="mt-3">
-              <p class="mb-1">メニューにこだわる</p>
+              <p class="mb-1">メニューで絞り込む</p>
               <div class="d-flex">
                 <div>
                   <b-button v-if="parameter[4].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[4].value='1'">
@@ -99,7 +105,7 @@
               </div>
             </div>
             <div class="mt-3">
-              <p class="mb-1">お酒にこだわる</p>
+              <p class="mb-1">お酒で絞り込む</p>
               <div class="d-flex">
                 <div>
                   <b-button v-if="parameter[7].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[7].value='1'">
@@ -136,7 +142,7 @@
               </div>
             </div>
             <div class="mt-3">
-              <p class="mb-1">その他</p>
+              <p class="mb-1">その他の条件で絞り込む</p>
               <div class="d-flex">
                 <div>
                   <b-button v-if="parameter[11].value==='0'" class="detailbtn unchecked mx-1" @click="parameter[11].value='1'">
@@ -239,7 +245,7 @@ export default {
         timeout: 5000,
         maximumAge: 0
       },
-      detailOpen: false
+      detailOpen: this.$store.getters.detailOpen
     }
   },
   computed: {
@@ -252,6 +258,13 @@ export default {
     faAngleDown () {
       return faAngleDown
     }
+  },
+  mounted () {
+    this.$store.watch((state, getters) => getters.detailOpen,
+      (newValue) => {
+        this.detailOpen = newValue
+      }
+    )
   },
   methods: {
     getlocation () {
@@ -328,8 +341,8 @@ export default {
 }
 .searchbtn {
   -webkit-tap-highlight-color:rgba(0,0,0,0);
-  font-size: 16px;
-  padding: 8px 20px;
+  font-size: 14px;
+  padding: 6px 16px;
   border: 1px solid #007bff;
   border-radius: 7px;
   cursor: pointer;

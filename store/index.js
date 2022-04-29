@@ -6,7 +6,8 @@ export const state = () => ({
   pages: 0,
   currentPage: 0,
   parameter: null,
-  length: 0
+  length: 0,
+  detailOpen: false
 })
 
 export const mutations = {
@@ -37,6 +38,13 @@ export const mutations = {
   removeBookmark (state, id) {
     const index = state.bookmark.findIndex(b => b.id === id)
     state.bookmark.splice(index, 1)
+  },
+  menuDetail (state, action) {
+    if (action === 'toggle') {
+      state.detailOpen = !state.detailOpen
+    } else if (action === 'close') {
+      state.detailOpen = false
+    }
   }
 }
 
@@ -83,6 +91,7 @@ export const actions = {
     console.log(this.state.searchResult.result)
   },
   resultSelect ({ commit }, result) {
+    commit('menuDetail', 'close')
     commit('resultSelect', result)
     console.log(result)
   },
@@ -91,6 +100,9 @@ export const actions = {
   },
   removeBookmark ({ commit }, id) {
     commit('removeBookmark', id)
+  },
+  menuDetail ({ commit }, action) {
+    commit('menuDetail', action)
   }
 }
 
@@ -115,5 +127,8 @@ export const getters = {
   },
   bookmark (state) {
     return state.bookmark
+  },
+  detailOpen (state) {
+    return state.detailOpen
   }
 }
