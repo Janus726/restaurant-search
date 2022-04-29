@@ -1,5 +1,5 @@
 <template>
-  <div id="detail" class="detail p-0">
+  <div id="detail" class="detail p-0 pb-2">
     <b-row>
       <b-img-lazy
         v-if="data.photo.pc.l"
