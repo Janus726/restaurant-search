@@ -165,6 +165,10 @@ export default {
   /*min-height: 31rem;*/
   height: 100%;
   width: 100%;
+  max-width: 800px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   background-color: #fafafa;
   border: none;
   border-radius: 14px 14px 0 0;

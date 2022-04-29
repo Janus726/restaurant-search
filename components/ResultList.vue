@@ -12,12 +12,12 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2" style="height: 52vh; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center">
+    <b-row class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
+      <b-col class="row d-flex justify-content-center">
         <div
           v-for="(val, key) in restaurantList"
           :key="key"
-          class="mb-3 card"
+          class="mb-3 card col-12 col-md-5 px-0 mx-md-3"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">
@@ -57,7 +57,7 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2 mt-3">
+    <b-row class="mx-2 mt-3 justify-content-center">
       <b-col class="text-center">
         <b-button
           v-if="$store.getters.currentPage > 0"
@@ -68,18 +68,18 @@
           <fa :icon="faAngleLeft" />
         </b-button>
       </b-col>
-      <b-col class="text-center col-2">
-        <div v-if="$store.getters.currentPage!==0" class="pageNumS mt-1 col-2">
+      <b-col class="text-center col-2 d-flex justify-content-center">
+        <div v-if="$store.getters.currentPage!==0" class="pageNumS mt-2 col-2">
           1
         </div>
       </b-col>
-      <b-col class="text-center col-2">
+      <b-col class="text-center col-2 d-flex justify-content-center">
         <div v-if="pageMax!==0" class="pageNumM col-2">
           {{ $store.getters.currentPage + 1 }}
         </div>
       </b-col>
-      <b-col class="text-center col-2">
-        <div v-if="$store.getters.currentPage + 1!==$store.getters.pages && $store.getters.pages!==0" class="pageNumS mt-1 col-2">
+      <b-col class="text-center col-2 d-flex justify-content-center">
+        <div v-if="$store.getters.currentPage + 1!==$store.getters.pages && $store.getters.pages!==0" class="pageNumS mt-2 col-2">
           {{ $store.getters.pages }}
         </div>
       </b-col>
@@ -114,7 +114,8 @@ export default {
       order: [
         { text: '近い順', value: null },
         { text: 'おすすめ順', value: '4' }
-      ]
+      ],
+      buttonPressed: false
     }
   },
   computed: {
@@ -154,14 +155,26 @@ export default {
   },
   methods: {
     nextPage () {
-      let page = this.$store.getters.currentPage
-      page++
-      this.$store.dispatch('nextPage', page)
+      if (this.buttonPressed === false) {
+        this.buttonPressed = true
+        let page = this.$store.getters.currentPage
+        page++
+        this.$store.dispatch('nextPage', page)
+        setTimeout(() => {
+          this.buttonPressed = false
+        }, 1000)
+      }
     },
     prevPage () {
-      let page = this.$store.getters.currentPage
-      page--
-      this.$store.dispatch('prevPage', page)
+      if (this.buttonPressed === false) {
+        this.buttonPressed = true
+        let page = this.$store.getters.currentPage
+        page--
+        this.$store.dispatch('prevPage', page)
+        setTimeout(() => {
+          this.buttonPressed = false
+        }, 1000)
+      }
     }
   }
 }
@@ -195,6 +208,7 @@ export default {
 .arrowbtn:active,
 .arrowbtn:hover,
 .arrowbtn:focus {
+  color: #007bff !important;
   background-color: #fafafa;
   outline: 0;
 }
@@ -205,7 +219,7 @@ export default {
   border: none;
   max-width: 36px;
   height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   padding-top: 5px;
 }
 .pageNumS {

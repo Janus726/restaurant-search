@@ -24,7 +24,6 @@
         <ResultList v-if="searched" />
         <ResultDetail
           v-if="$store.getters.selectedResult"
-          style="position: absolute; bottom: 0; left: 0"
         />
       </div>
       <div v-else>
@@ -117,9 +116,6 @@ export default {
   background: rgb(237,106,0);
   background: linear-gradient(129deg, rgba(237,106,0,1) 0%, rgba(249,147,5,1) 58%, rgba(255,170,0,1) 100%);
   color: dimgrey;
-}
-#footer {
-  font-size: 11px;
 }
 .btneffect {
   -webkit-tap-highlight-color:rgba(0,0,0,0);

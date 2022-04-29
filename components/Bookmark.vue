@@ -12,12 +12,12 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2" style="height: 38rem; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center">
+    <b-row class="mx-2 justify-content-center" style="height: 38rem; overflow: auto; border-radius: 14px">
+      <b-col class="justify-content-center row d-flex">
         <div
           v-for="(val, key) in data"
           :key="key"
-          class="mb-3 card"
+          class="mb-3 card col-12 col-md-5 mx-md-3 px-0"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">
@@ -45,7 +45,7 @@
                 />
               </div>
               <div class="align-items-end" @click="$store.dispatch('resultSelect', val)">
-                <h5 class="mt-1" style="font-size: 17px;">
+                <h5 class="mt-0" style="font-size: 16px;">
                   {{ val.name }}
                 </h5>
                 <p style="font-size: 11px">
@@ -99,7 +99,7 @@ export default {
   object-fit: cover;
   object-position: center;
   height: 100%;
-  max-height: 140px;
+  max-height: 120px;
   width: 110px;
   overflow: hidden;
   border-radius: 10px 0 0 10px;
@@ -108,7 +108,7 @@ export default {
   background-color: #fafafa;
   border-radius: 10px;
   border: none;
-  max-height: 140px;
+  max-height: 120px;
   box-shadow:0 7px 10px #B25F00;
 }
 </style>
