@@ -48,7 +48,7 @@
         <fa :icon="faBookmarked" style="color: #fafafa; font-size: 20px" />
       </b-button>
     </b-row>
-    <div style="height: 23rem; overflow: auto; padding-bottom: 3rem">
+    <div style="max-height: 23rem; overflow: auto; padding-bottom: 3rem">
       <b-row class="mt-4 mx-2">
         <b-col>
           <div>
@@ -163,7 +163,7 @@ export default {
 <style scoped>
 .detail {
   /*min-height: 31rem;*/
-  height: calc(100% - 5rem);
+  height: 100%;
   width: 100%;
   background-color: #fafafa;
   border: none;
@@ -174,10 +174,10 @@ export default {
 }
 @keyframes anim {
   0% {
-    transform: translateY(calc(100% - 5rem));
+    transform: translateY(100%);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(5rem);
   }
 }
 .closebtn {
