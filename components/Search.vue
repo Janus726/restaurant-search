@@ -61,12 +61,12 @@
               <div class="d-flex">
                 <b-form-input
                   v-model="parameter[3].value"
-                  class="wordform mx-md-4"
+                  class="wordform mx-md-2"
                   style="border-radius: 7px; font-size: 14px"
                   placeholder="新宿 居酒屋"
                 />
                 <b-button
-                  class="ml-2 detailbtn mx-md-4"
+                  class="ml-2 detailbtn mx-md-2"
                   style="border-color: dimgrey; color: dimgrey; white-space: nowrap"
                   variant="outline-secondary"
                   @click="parameter[3].value=null"
@@ -79,26 +79,26 @@
               <p class="mb-1">メニューで絞り込む</p>
               <div class="d-flex">
                 <div>
-                  <b-button v-if="parameter[4].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[4].value='1'">
+                  <b-button v-if="parameter[4].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[4].value='1'">
                     コース料理
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[4].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[4].value='0'">
                     コース料理
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[5].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[5].value='1'">
+                  <b-button v-if="parameter[5].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[5].value='1'">
                     飲み放題
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[5].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[5].value='0'">
                     飲み放題
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[6].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[6].value='1'">
+                  <b-button v-if="parameter[6].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[6].value='1'">
                     食べ放題
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[6].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[6].value='0'">
                     食べ放題
                   </b-button>
                 </div>
@@ -108,34 +108,34 @@
               <p class="mb-1">お酒で絞り込む</p>
               <div class="d-flex">
                 <div>
-                  <b-button v-if="parameter[7].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[7].value='1'">
+                  <b-button v-if="parameter[7].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[7].value='1'">
                     カクテル
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[7].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[7].value='0'">
                     カクテル
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[8].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[8].value='1'">
+                  <b-button v-if="parameter[8].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[8].value='1'">
                     焼酎
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[8].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[8].value='0'">
                     焼酎
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[9].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[9].value='1'">
+                  <b-button v-if="parameter[9].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[9].value='1'">
                     日本酒
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[9].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[9].value='0'">
                     日本酒
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[10].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[10].value='1'">
+                  <b-button v-if="parameter[10].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[10].value='1'">
                     ワイン
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[10].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[10].value='0'">
                     ワイン
                   </b-button>
                 </div>
@@ -145,26 +145,26 @@
               <p class="mb-1">その他の条件で絞り込む</p>
               <div class="d-flex">
                 <div>
-                  <b-button v-if="parameter[11].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[11].value='1'">
+                  <b-button v-if="parameter[11].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[11].value='1'">
                     個室あり
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[11].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[11].value='0'">
                     個室あり
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[12].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[12].value='1'">
+                  <b-button v-if="parameter[12].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[12].value='1'">
                     ランチあり
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[12].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[12].value='0'">
                     ランチあり
                   </b-button>
                 </div>
                 <div>
-                  <b-button v-if="parameter[13].value==='0'" class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[13].value='1'">
+                  <b-button v-if="parameter[13].value==='0'" class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[13].value='1'">
                     23時以降営業
                   </b-button>
-                  <b-button v-else class="detailbtn checked mx-1 mx-md-4" @click="parameter[13].value='0'">
+                  <b-button v-else class="detailbtn checked mx-1 mx-md-2" @click="parameter[13].value='0'">
                     23時以降営業
                   </b-button>
                 </div>
@@ -174,16 +174,16 @@
               <p class="mb-1">並び順</p>
               <div class="d-flex">
                 <div>
-                  <b-button v-if="!parameter[14].value" class="detailbtn checked mx-1 mx-md-4">
+                  <b-button v-if="!parameter[14].value" class="detailbtn checked mx-1 mx-md-2">
                     近い順
                   </b-button>
-                  <b-button v-else class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[14].value=null">
+                  <b-button v-else class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[14].value=null">
                     近い順
                   </b-button>
-                  <b-button v-if="parameter[14].value==='4'" class="detailbtn checked mx-1 mx-md-4">
+                  <b-button v-if="parameter[14].value==='4'" class="detailbtn checked mx-1 mx-md-2">
                     おすすめ順
                   </b-button>
-                  <b-button v-else class="detailbtn unchecked mx-1 mx-md-4" @click="parameter[14].value='4'">
+                  <b-button v-else class="detailbtn unchecked mx-1 mx-md-2" @click="parameter[14].value='4'">
                     おすすめ順
                   </b-button>
                 </div>
@@ -272,6 +272,7 @@ export default {
       if (!this.buttonPressed) {
         this.buttonPressed = true
         if (navigator.geolocation) {
+          this.$store.dispatch('gpsOn', true)
           navigator.geolocation.getCurrentPosition(
             (position) => {
               this.parameter[0].value = position.coords.latitude.toString()
@@ -288,6 +289,8 @@ export default {
           setTimeout(() => {
             this.buttonPressed = false
           }, 3000)
+        } else {
+          this.$store.dispatch('gpsOn', false)
         }
       }
     },

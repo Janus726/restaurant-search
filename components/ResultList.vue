@@ -12,12 +12,12 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
-      <b-col class="row d-flex justify-content-center">
+    <b-row v-if="$store.getters.gpsStatus" class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
+      <b-col class="justify-content-center">
         <div
           v-for="(val, key) in restaurantList"
           :key="key"
-          class="mb-3 card col-12 col-md-5 px-0 mx-md-3"
+          class="mb-3 card px-0"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">
@@ -54,6 +54,15 @@
               </div>
             </div>
           </div>
+        </div>
+      </b-col>
+    </b-row>
+    <b-row v-else class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
+      <b-col class="justify-content-center">
+        <div>
+          <h4>
+            位置情報が取得できません
+          </h4>
         </div>
       </b-col>
     </b-row>

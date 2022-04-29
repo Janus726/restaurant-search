@@ -13,11 +13,11 @@
       </b-col>
     </b-row>
     <b-row class="mx-2 justify-content-center" style="height: 38rem; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center row d-flex">
+      <b-col class="justify-content-center">
         <div
           v-for="(val, key) in data"
           :key="key"
-          class="mb-3 card col-12 col-md-5 mx-md-3 px-0"
+          class="mb-3 card px-0"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">

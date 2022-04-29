@@ -7,7 +7,8 @@ export const state = () => ({
   currentPage: 0,
   parameter: null,
   length: 0,
-  detailOpen: false
+  detailOpen: false,
+  gpsEnabled: false
 })
 
 export const mutations = {
@@ -45,6 +46,9 @@ export const mutations = {
     } else if (action === 'close') {
       state.detailOpen = false
     }
+  },
+  gpsOn (state, status) {
+    state.gpsEnabled = status
   }
 }
 
@@ -103,6 +107,9 @@ export const actions = {
   },
   menuDetail ({ commit }, action) {
     commit('menuDetail', action)
+  },
+  gpsOn ({ commit }, status) {
+    commit('gpsOn', status)
   }
 }
 
@@ -130,5 +137,8 @@ export const getters = {
   },
   detailOpen (state) {
     return state.detailOpen
+  },
+  gpsStatus (state) {
+    return state.gpsEnabled
   }
 }

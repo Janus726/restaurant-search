@@ -75,6 +75,7 @@ export default {
     getLocation () {
       navigator.geolocation.getCurrentPosition(
         (position) => {
+          this.$store.dispatch('gpsOn', true)
           this.location = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -83,10 +84,7 @@ export default {
           this.searchSpot()
         },
         () => {
-          this.$bvToast.toast('位置情報の取得に失敗しました。もう一度読み込んでください。', {
-            variant: 'danger',
-            solid: true
-          })
+          this.$store.dispatch('gpsOn', false)
           this.loaded = true
         }, this.geoOption
       )
