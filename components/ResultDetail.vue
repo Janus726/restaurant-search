@@ -48,40 +48,42 @@
         <fa :icon="faBookmarked" style="color: #fafafa; font-size: 20px" />
       </b-button>
     </b-row>
-    <b-row class="mt-4 mx-2">
-      <b-col>
-        <div>
-          <h4 style="font-weight: bold">{{ data.name }}</h4>
-          <p style="font-size: 14px">{{ data.address }}</p>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row class="mx-2" style="height: 300px; padding-bottom: 3rem; overflow: auto">
-      <b-col>
-        <div>
-          <p class="item">営業時間</p>
-          <p class="item-detail">{{ data.open }}</p>
-        </div>
-        <div>
-          <p class="item">平均予算</p>
-          <p class="item-detail">{{ data.budget.average }}</p>
-        </div>
-        <div v-if="data.shop_detail_memo">
-          <p class="item">メモ</p>
-          <p class="item-detail">{{ data.shop_detail_memo }}</p>
-        </div>
-        <div class="d-flex mt-4 row">
-          <div class="otheritem m-1">{{ data.genre.name }}</div>
-          <div v-if="data.free_drink==='あり'" class="otheritem m-1">飲み放題</div>
-          <div v-if="data.free_food==='あり'" class="otheritem m-1">食べ放題</div>
-          <div v-if="data.course==='あり'" class="otheritem m-1">コース料理</div>
-          <div v-if="data.midnight==='営業している'" class="otheritem m-1">23時以降営業</div>
-          <div v-if="data.lunch==='あり'" class="otheritem m-1">ランチ</div>
-          <div v-if="data.karaoke==='あり'" class="otheritem m-1">カラオケあり</div>
-          <div v-if="data.pet==='可'" class="otheritem m-1">ペットOK</div>
-        </div>
-      </b-col>
-    </b-row>
+    <div style="height: 23rem; overflow: auto; padding-bottom: 3rem">
+      <b-row class="mt-4 mx-2">
+        <b-col>
+          <div>
+            <h4 style="font-weight: bold">{{ data.name }}</h4>
+            <p style="font-size: 14px">{{ data.address }}</p>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row class="mx-2">
+        <b-col>
+          <div>
+            <p class="item">営業時間</p>
+            <p class="item-detail">{{ data.open }}</p>
+          </div>
+          <div>
+            <p class="item">平均予算</p>
+            <p class="item-detail">{{ data.budget.average }}</p>
+          </div>
+          <div v-if="data.shop_detail_memo">
+            <p class="item">メモ</p>
+            <p class="item-detail">{{ data.shop_detail_memo }}</p>
+          </div>
+          <div class="d-flex mt-4 row">
+            <div class="otheritem m-1">{{ data.genre.name }}</div>
+            <div v-if="data.free_drink==='あり'" class="otheritem m-1">飲み放題</div>
+            <div v-if="data.free_food==='あり'" class="otheritem m-1">食べ放題</div>
+            <div v-if="data.course==='あり'" class="otheritem m-1">コース料理</div>
+            <div v-if="data.midnight==='営業している'" class="otheritem m-1">23時以降営業</div>
+            <div v-if="data.lunch==='あり'" class="otheritem m-1">ランチ</div>
+            <div v-if="data.karaoke==='あり'" class="otheritem m-1">カラオケあり</div>
+            <div v-if="data.pet==='可'" class="otheritem m-1">ペットOK</div>
+          </div>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -168,7 +170,7 @@ export default {
   border-radius: 14px 14px 0 0;
   /*box-shadow:0 -5px 5px #D67200;*/
   animation: anim 0.5s forwards;
-  overflow: hidden;
+  overflow: auto;
 }
 @keyframes anim {
   0% {

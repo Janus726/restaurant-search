@@ -19,7 +19,7 @@
           ブックマーク
         </b-button>
       </div>
-      <div v-if="searchMode" style="height: 100%">
+      <div v-if="searchMode">
         <Search style="min-height: 11rem" />
         <ResultList v-if="searched" />
         <ResultDetail
@@ -108,6 +108,7 @@ export default {
 #app {
   /*background-color: #fafafa;*/
   min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;

@@ -45,7 +45,7 @@
                 />
               </div>
               <div @click="$store.dispatch('resultSelect', val)">
-                <h5 class="mt-1" style="font-size: 17px;">
+                <h5 class="mt-0" style="font-size: 16px;">
                   {{ val.name }}
                 </h5>
                 <p style="font-size: 11px">
@@ -172,7 +172,7 @@ export default {
   object-fit: cover;
   object-position: center;
   height: 100%;
-  max-height: 140px;
+  max-height: 120px;
   width: 110px;
   overflow: hidden;
   border-radius: 10px 0 0 10px;
@@ -181,7 +181,7 @@ export default {
   background-color: #fafafa;
   border-radius: 10px;
   border: none;
-  max-height: 140px;
+  max-height: 120px;
   box-shadow:0 7px 10px #B25F00;
 }
 .arrowbtn {
@@ -191,6 +191,12 @@ export default {
   max-width: 36px;
   height: 36px;
   box-shadow:0 5px 8px #B25F00;
+}
+.arrowbtn:active,
+.arrowbtn:hover,
+.arrowbtn:focus {
+  background-color: #fafafa;
+  outline: 0;
 }
 .pageNumM {
   background-color: transparent;
