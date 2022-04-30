@@ -1,23 +1,24 @@
 <template>
   <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
-    <b-row class="px-2">
-      <b-col>
-        <div class="d-flex mt-3" style="color: #fafafa">
-          <h4 class="pl-2 mx-3">
-            {{ length }}
-          </h4>
-          <p class="mt-1 mb-0">
-            件のブックマーク
-          </p>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row class="mx-2 justify-content-center" style="height: 38rem; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center">
-        <div
+    <b-container>
+      <b-row class="px-2">
+        <b-col>
+          <div class="d-flex mt-3" style="color: #fafafa">
+            <h4 class="pl-2 mx-3">
+              {{ length }}
+            </h4>
+            <p class="mt-1 mb-0">
+              件のブックマーク
+            </p>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row class="mx-2 px-1 justify-content-center align-items-start" style="max-height: 38rem; overflow: auto; border-radius: 14px">
+        <!--      <b-col class="justify-content-center">-->
+        <b-col
           v-for="(val, key) in data"
           :key="key"
-          class="mb-3 card px-0"
+          class="mb-3 card px-0 col-12 col-md-5 mx-md-2"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">
@@ -54,9 +55,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </b-col>
-    </b-row>
+        </b-col>
+        <!--      </b-col>-->
+      </b-row>
+    </b-container>
   </div>
 </template>
 

@@ -143,15 +143,17 @@ export default {
       }
     },
     openRoute (lat, lng) {
-      const ua = navigator.userAgent
+      // const ua = navigator.userAgent
       let url = ''
-      if (/iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
-        url = `comgooglemaps://?saddr=${lat},${lng}&daddr=${this.data.lat.toString()},${this.data.lng.toString()}&directionsmode=walking`
-        window.open(url, '_blank')
-      } else {
-        url = `https://www.google.co.jp/maps/dir/${lat},${lng}/${this.data.lat.toString()},${this.data.lng.toString()}`
-        window.open(url, '_blank')
-      }
+      // if (/iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      //   url = `comgooglemaps://?saddr=${lat},${lng}&daddr=${this.data.lat.toString()},${this.data.lng.toString()}&directionsmode=walking`
+      //   window.open(url, '_blank')
+      // } else {
+      //   url = `https://www.google.co.jp/maps/dir/${lat},${lng}/${this.data.lat.toString()},${this.data.lng.toString()}`
+      //   window.open(url, '_blank')
+      // }
+      url = `https://www.google.co.jp/maps/dir/${lat},${lng}/${this.data.lat.toString()},${this.data.lng.toString()}`
+      window.open(url, '_blank')
     },
     openUrl () {
       window.open(this.data.urls.pc, '_blank')

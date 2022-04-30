@@ -357,7 +357,7 @@ export default {
   border-radius: 7px;
   cursor: pointer;
   outline: none;
-  box-shadow:0 7px 10px #B25F00;
+  box-shadow:0 5px 8px #B25F00;
 }
 .wordform::placeholder {
   color: darkgray;

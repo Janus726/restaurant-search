@@ -1,23 +1,24 @@
 <template>
   <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
-    <b-row class="px-2">
-      <b-col>
-        <div class="d-flex" style="color: #fafafa">
-          <h4 class="pl-2 mx-3">
-            {{ $store.getters.length }}
-          </h4>
-          <p class="mt-1 mb-0">
-            件が見つかりました
-          </p>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row v-if="$store.getters.gpsStatus" class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center">
-        <div
+    <b-container>
+      <b-row class="px-2">
+        <b-col>
+          <div class="d-flex" style="color: #fafafa">
+            <h4 class="pl-2 mx-3">
+              {{ $store.getters.length }}
+            </h4>
+            <p class="mt-1 mb-0">
+              件が見つかりました
+            </p>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row v-if="$store.getters.gpsStatus" class="mx-2 px-1 justify-content-center align-items-start" style="max-height: 51vh; overflow: auto; border-radius: 10px">
+        <!--      <b-col class="justify-content-center">-->
+        <b-col
           v-for="(val, key) in restaurantList"
           :key="key"
-          class="mb-3 card px-0"
+          class="mb-3 card px-0 col-12 col-md-5 mx-md-2"
         >
           <div class="d-flex">
             <div @click="$store.dispatch('resultSelect', val)">
@@ -54,55 +55,56 @@
               </div>
             </div>
           </div>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row v-else class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
-      <b-col class="justify-content-center">
-        <div>
-          <h4>
-            位置情報が取得できません
-          </h4>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row class="mx-2 mt-3 justify-content-center">
-      <b-col class="text-center">
-        <b-button
-          v-if="$store.getters.currentPage > 0"
-          variant="outline-primary"
-          class="arrowbtn col-2"
-          @click="prevPage()"
-        >
-          <fa :icon="faAngleLeft" />
-        </b-button>
-      </b-col>
-      <b-col class="text-center col-2 d-flex justify-content-center">
-        <div v-if="$store.getters.currentPage!==0" class="pageNumS mt-2 col-2">
-          1
-        </div>
-      </b-col>
-      <b-col class="text-center col-2 d-flex justify-content-center">
-        <div v-if="pageMax!==0" class="pageNumM col-2">
-          {{ $store.getters.currentPage + 1 }}
-        </div>
-      </b-col>
-      <b-col class="text-center col-2 d-flex justify-content-center">
-        <div v-if="$store.getters.currentPage + 1!==$store.getters.pages && $store.getters.pages!==0" class="pageNumS mt-2 col-2">
-          {{ $store.getters.pages }}
-        </div>
-      </b-col>
-      <b-col class="text-center">
-        <b-button
-          v-if="$store.getters.currentPage + 1 < $store.getters.pages"
-          variant="outline-primary"
-          class="arrowbtn col-2"
-          @click="nextPage()"
-        >
-          <fa :icon="faAngleRight" />
-        </b-button>
-      </b-col>
-    </b-row>
+        </b-col>
+        <!--      </b-col>-->
+      </b-row>
+      <b-row v-else class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
+        <b-col class="justify-content-center">
+          <div>
+            <h4>
+              位置情報が取得できません
+            </h4>
+          </div>
+        </b-col>
+      </b-row>
+      <b-row class="mx-2 mt-3 justify-content-center">
+        <b-col class="text-center">
+          <b-button
+            v-if="$store.getters.currentPage > 0"
+            variant="outline-primary"
+            class="arrowbtn col-2"
+            @click="prevPage()"
+          >
+            <fa :icon="faAngleLeft" />
+          </b-button>
+        </b-col>
+        <b-col class="text-center col-2 d-flex justify-content-center">
+          <div v-if="$store.getters.currentPage!==0" class="pageNumS mt-2 col-2">
+            1
+          </div>
+        </b-col>
+        <b-col class="text-center col-2 d-flex justify-content-center">
+          <div v-if="pageMax!==0" class="pageNumM col-2">
+            {{ $store.getters.currentPage + 1 }}
+          </div>
+        </b-col>
+        <b-col class="text-center col-2 d-flex justify-content-center">
+          <div v-if="$store.getters.currentPage + 1!==$store.getters.pages && $store.getters.pages!==0" class="pageNumS mt-2 col-2">
+            {{ $store.getters.pages }}
+          </div>
+        </b-col>
+        <b-col class="text-center">
+          <b-button
+            v-if="$store.getters.currentPage + 1 < $store.getters.pages"
+            variant="outline-primary"
+            class="arrowbtn col-2"
+            @click="nextPage()"
+          >
+            <fa :icon="faAngleRight" />
+          </b-button>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -191,8 +193,8 @@ export default {
 
 <style scoped>
 .thumbnail {
-  object-fit: cover;
-  object-position: center;
+  /*object-fit: cover;*/
+  /*object-position: center;*/
   height: 100%;
   max-height: 120px;
   width: 110px;
@@ -204,7 +206,7 @@ export default {
   border-radius: 10px;
   border: none;
   max-height: 120px;
-  box-shadow:0 7px 10px #B25F00;
+  box-shadow:0 5px 8px #B25F00;
 }
 .arrowbtn {
   background-color: #fafafa;
