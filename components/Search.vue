@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
-    <b-row class="px-4 mb-2" style="color: #fafafa">
+  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif; background-color: #fafafa; border-radius: 14px 14px 0 0;">
+    <b-row class="px-4 mb-2" style="color: #757575">
       <b-col class="col-12 text-center">
         <div class="d-flex align-items-end">
           <div
@@ -13,7 +13,7 @@
               <b-button
                 v-model="parameter[2].value"
                 type="radio"
-                style="border: none; font-size: 24px; background-color: rgba(0, 0, 0, 0)"
+                style="border: none; font-size: 26px; background-color: rgba(0, 0, 0, 0); color: rgb(237,106,0)"
                 class="btneffect p-0"
                 size="lg"
                 @click="parameter[2].value=val.value"
@@ -36,17 +36,17 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="mx-2 my-2">
+    <b-row class="mx-1 my-2">
       <b-col class="text-center">
         <div @click="$store.dispatch('menuDetail', 'toggle')">
           <p
             class="mb-0"
-            style="color: #fafafa; font-size: 14px"
+            style="color: #757575; font-size: 16px"
           >
             検索条件を追加
           </p>
-          <fa v-if="!detailOpen" :icon="faAngleDown" class="my-0" style="color: #fafafa; font-size: 14px" />
-          <fa v-else :icon="faAngleUp" class="my-0" style="color: #fafafa; font-size: 14px" />
+          <fa v-if="!detailOpen" :icon="faAngleDown" class="my-0" style="color: #757575; font-size: 14px" />
+          <fa v-else :icon="faAngleUp" class="my-0" style="color: #757575; font-size: 14px" />
         </div>
         <b-collapse
           id="detail"
@@ -318,7 +318,7 @@ export default {
   background-color: #fafafa;
   border-radius: 10px;
   border: none;
-  box-shadow:0 7px 10px #B25F00;
+  box-shadow:0 7px 10px;
 }
 .btneffect {
   -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -357,7 +357,7 @@ export default {
   border-radius: 7px;
   cursor: pointer;
   outline: none;
-  box-shadow:0 5px 8px #B25F00;
+  box-shadow:0 5px 8px #c1c1c1;
 }
 .wordform::placeholder {
   color: darkgray;

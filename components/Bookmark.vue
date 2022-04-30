@@ -1,9 +1,9 @@
 <template>
-  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
+  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif; background-color: #fafafa; border-radius: 14px 14px 0 0">
     <b-container>
       <b-row class="px-2">
         <b-col>
-          <div class="d-flex mt-3" style="color: #fafafa">
+          <div class="d-flex mt-3" style="color: #757575">
             <h4 class="pl-2 mx-3">
               {{ length }}
             </h4>
@@ -13,7 +13,7 @@
           </div>
         </b-col>
       </b-row>
-      <b-row class="mx-2 px-1 justify-content-center align-items-start" style="max-height: 38rem; overflow: auto; border-radius: 14px">
+      <b-row class="px-2 justify-content-center align-items-start" style="max-height: 38rem; overflow: auto; border-radius: 14px">
         <!--      <b-col class="justify-content-center">-->
         <b-col
           v-for="(val, key) in data"
@@ -111,6 +111,6 @@ export default {
   border-radius: 10px;
   border: none;
   max-height: 120px;
-  box-shadow:0 7px 10px #B25F00;
+  box-shadow:0 5px 8px #c1c1c1;
 }
 </style>

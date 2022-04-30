@@ -1,10 +1,10 @@
 <template>
-  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
-    <b-container>
+  <div v-if="loaded" style="color: #757575; font-family: 'Noto Sans JP', sans-serif; background-color: #fafafa">
+    <b-container class="pb-4">
       <b-row class="px-2">
         <b-col>
-          <div class="d-flex" style="color: #fafafa">
-            <h4 class="pl-2 mx-3">
+          <div class="d-flex" style="color: #757575">
+            <h4 class="pl-2 mr-3">
               {{ $store.getters.length }}
             </h4>
             <p class="mt-1 mb-0">
@@ -13,7 +13,7 @@
           </div>
         </b-col>
       </b-row>
-      <b-row v-if="$store.getters.gpsStatus" class="mx-2 px-1 justify-content-center align-items-start" style="max-height: 51vh; overflow: auto; border-radius: 10px">
+      <b-row v-if="$store.getters.gpsStatus" class="px-2 justify-content-center align-items-start" style="max-height: 50vh; overflow: auto; border-radius: 10px">
         <!--      <b-col class="justify-content-center">-->
         <b-col
           v-for="(val, key) in restaurantList"
@@ -206,26 +206,27 @@ export default {
   border-radius: 10px;
   border: none;
   max-height: 120px;
-  box-shadow:0 5px 8px #B25F00;
+  box-shadow:0 5px 8px #c1c1c1;
 }
 .arrowbtn {
   background-color: #fafafa;
+  color: rgb(237,106,0);
   border-radius: 50%;
   border: none;
   max-width: 36px;
   height: 36px;
-  box-shadow:0 5px 8px #B25F00;
+  box-shadow:0 5px 8px #c1c1c1;
 }
 .arrowbtn:active,
 .arrowbtn:hover,
 .arrowbtn:focus {
-  color: #007bff !important;
-  background-color: #fafafa;
-  outline: 0;
+  color: rgb(237,106,0) !important;
+  background-color: #fafafa !important;
+  outline: none;
 }
 .pageNumM {
   background-color: transparent;
-  color: #fafafa;
+  color: rgb(237,106,0);
   border-radius: 50%;
   border: none;
   max-width: 36px;
@@ -235,7 +236,7 @@ export default {
 }
 .pageNumS {
   background-color: transparent;
-  color: #fafafa;
+  color: rgb(237,106,0);
   border-radius: 50%;
   border: none;
   max-width: 28px;

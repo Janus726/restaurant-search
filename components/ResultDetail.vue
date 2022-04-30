@@ -71,7 +71,7 @@
             <p class="item">メモ</p>
             <p class="item-detail">{{ data.shop_detail_memo }}</p>
           </div>
-          <div class="d-flex mt-4 row">
+          <div class="d-flex mt-4 px-2 row">
             <div class="otheritem m-1">{{ data.genre.name }}</div>
             <div v-if="data.free_drink==='あり'" class="otheritem m-1">飲み放題</div>
             <div v-if="data.free_food==='あり'" class="otheritem m-1">食べ放題</div>
@@ -242,7 +242,7 @@ export default {
   height: 65px;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 7px 10px #a3a3a3;
+  box-shadow: 0 5px 8px #c1c1c1;
 }
 .item {
   margin-top: 10px;

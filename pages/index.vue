@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-container class="px-0">
-      <div class="d-flex mx-4 align-items-end">
+      <div class="d-flex mx-4 align-items-end pb-2">
         <b-button
           type="radio"
           class="mx-auto btneffect no-active"
@@ -20,14 +20,14 @@
         </b-button>
       </div>
       <div v-if="searchMode">
-        <Search style="min-height: 11rem" />
+        <Search class="pb-1" style="min-height: 11rem" />
         <ResultList v-if="searched" />
         <ResultDetail
           v-if="$store.getters.selectedResult"
         />
       </div>
       <div v-else>
-        <Bookmark />
+        <Bookmark style="height: 100vh" />
         <ResultDetail
           v-if="$store.getters.selectedResult"
           style="position: absolute; bottom: 0; left: 0"
@@ -130,7 +130,7 @@ export default {
   box-shadow: none !important;
 }
 .active {
-  font-size: 22px !important;
+  font-size: 24px !important;
   background-color: transparent !important;
   border: none;
   color: #fafafa;
