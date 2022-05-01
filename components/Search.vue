@@ -193,7 +193,7 @@
         </b-collapse>
       </b-col>
     </b-row>
-    <b-row class="px-4 my-3">
+    <b-row class="px-4 my-2">
       <b-col class="text-center">
         <b-button
           variant="primary"

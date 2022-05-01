@@ -167,7 +167,7 @@ export default {
   /*min-height: 31rem;*/
   height: 100%;
   min-width: 100%;
-  max-width: 700px;
+  max-width: 700px !important;
   position: absolute;
   bottom: 0;
   left: 0;

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-container class="px-0">
-      <div class="d-flex mx-4 align-items-end pb-2">
+      <div class="d-flex mx-4 align-items-end" style="height: 5rem">
         <b-button
           type="radio"
           class="mx-auto btneffect no-active"
@@ -21,7 +21,8 @@
       </div>
       <div v-if="searchMode">
         <Search class="pb-1" style="min-height: 11rem" />
-        <ResultList v-if="searched" />
+        <ResultList v-if="searched" style="height: 100vh"/>
+        <PageController />
         <ResultDetail
           v-if="$store.getters.selectedResult"
         />
@@ -44,9 +45,10 @@ import Search from '../components/Search'
 import Footer from '../components/Footer'
 import ResultDetail from '../components/ResultDetail'
 import Bookmark from '../components/Bookmark'
+import PageController from '../components/PageController'
 
 export default {
-  components: { ResultList, Search, Footer, ResultDetail, Bookmark },
+  components: { ResultList, Search, Footer, ResultDetail, Bookmark, PageController },
   data () {
     return {
       loaded: false,
@@ -109,7 +111,6 @@ export default {
   overflow: hidden;
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
-  padding-top: 25px;
   padding-bottom: 25px;
   background: rgb(237,106,0);
   background: linear-gradient(129deg, rgba(237,106,0,1) 0%, rgba(249,147,5,1) 58%, rgba(255,170,0,1) 100%);
@@ -130,7 +131,7 @@ export default {
   box-shadow: none !important;
 }
 .active {
-  font-size: 24px !important;
+  font-size: 22px !important;
   background-color: transparent !important;
   border: none;
   color: #fafafa;
