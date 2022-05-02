@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2 fixed-bottom" style="position: absolute; bottom: 25px; left: 0; right: 0;">
+  <div class="mx-2 fixed-bottom" style="margin-bottom: 25px;">
     <b-container>
       <b-row class="mx-3 py-1 justify-content-center d-flex align-items-center" style="background-color: rgb(249, 147, 5); border-radius: 50px">
         <b-col class="text-center">
