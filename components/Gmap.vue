@@ -1,7 +1,7 @@
 <template>
   <div style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
     <b-container>
-      <b-row style="height: calc(100vh - (16rem + 50px)); overflow: auto; padding-bottom: 60px;">
+      <b-row style="height: calc(100vh - (16rem + 75px)); overflow: auto; padding-bottom: 60px;">
         <b-col>
           <GmapMap
             map-type-id="roadmap"

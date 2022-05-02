@@ -55,7 +55,7 @@
           class="card px-3 py-4 mt-0 px-md-4"
           style="box-shadow: 0 0 0"
         >
-          <div class="text-left" style="height: calc(100vh - (20rem + 50px)); font-size: 14px; overflow: auto">
+          <div class="text-left" style="height: calc(100vh - (20rem + 75px)); font-size: 14px; overflow: auto">
             <div>
               <p class="mb-1">フリーワード</p>
               <div class="d-flex">

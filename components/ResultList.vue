@@ -29,7 +29,7 @@
           </div>
         </b-col>
       </b-row>
-      <b-row v-if="$store.getters.gpsStatus && display==='list'" class="px-2 justify-content-center align-items-start" style="max-height: calc(100vh - (16rem + 50px)); overflow: auto; padding-bottom: 60px; border-radius: 10px">
+      <b-row v-if="$store.getters.gpsStatus && display==='list'" class="px-2 justify-content-center align-items-start" style="max-height: calc(100vh - (16rem + 75px)); overflow: auto; padding-bottom: 60px; border-radius: 10px">
         <!--      <b-col class="justify-content-center">-->
         <b-col
           v-for="(val, key) in restaurantList"
