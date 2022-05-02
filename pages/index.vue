@@ -22,7 +22,9 @@
       <div v-if="searchMode">
         <Search class="pb-1" style="min-height: 10rem" />
         <ResultList v-if="searched" style="height: 100vh"/>
-        <PageController />
+        <PageController
+          v-if="!$store.getters.selectedResult"
+        />
         <ResultDetail
           v-if="$store.getters.selectedResult"
         />
