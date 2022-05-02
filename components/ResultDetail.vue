@@ -48,7 +48,7 @@
         <fa :icon="faBookmarked" style="color: #fafafa; font-size: 20px" />
       </b-button>
     </b-row>
-    <div style="max-height: 23rem; overflow: auto; padding-bottom: 3rem">
+    <div style="max-height: 23rem; overflow: auto; padding-bottom: 5rem">
       <b-row class="mt-4 mx-2">
         <b-col>
           <div>

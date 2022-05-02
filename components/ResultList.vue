@@ -10,10 +10,26 @@
             <p class="mt-1 mb-0">
               件が見つかりました
             </p>
+            <div class="ml-auto mr-0">
+              <b-button v-if="display==='map'" class="detailbtn unchecked py-1 px-2" style="border-radius: 50px 0 0 50px" @click="display='list'">
+                <fa :icon="faListUl" />
+              </b-button>
+              <b-button v-else class="detailbtn checked py-1 px-2" style="border-radius: 50px 0 0 50px">
+                <fa :icon="faListUl" />
+              </b-button>
+            </div>
+            <div>
+              <b-button v-if="display==='list'" class="detailbtn unchecked py-1 px-2" style="border-radius: 0 50px 50px 0" @click="display='map'">
+                <fa :icon="faMapMarkedAlt" />
+              </b-button>
+              <b-button v-else class="detailbtn checked py-1 px-2" style="border-radius: 0 50px 50px 0">
+                <fa :icon="faMapMarkedAlt" />
+              </b-button>
+            </div>
           </div>
         </b-col>
       </b-row>
-      <b-row v-if="$store.getters.gpsStatus" class="px-2 justify-content-center align-items-start" style="max-height: 60vh; overflow: auto; padding-bottom: 60px; border-radius: 10px">
+      <b-row v-if="$store.getters.gpsStatus && display==='list'" class="px-2 justify-content-center align-items-start" style="max-height: calc(100vh - (16rem + 50px)); overflow: auto; padding-bottom: 55px; border-radius: 10px">
         <!--      <b-col class="justify-content-center">-->
         <b-col
           v-for="(val, key) in restaurantList"
@@ -58,12 +74,13 @@
         </b-col>
         <!--      </b-col>-->
       </b-row>
-      <b-row v-else class="mx-2 justify-content-center" style="height: 51vh; overflow: auto; border-radius: 14px">
-        <b-col class="justify-content-center">
+      <Gmap v-else-if="$store.getters.gpsStatus && display==='map'" />
+      <b-row v-else class="mx-2 justify-content-center align-items-center" style="height: 51vh; overflow: auto; border-radius: 14px">
+        <b-col class="text-center">
           <div>
-            <h4>
+            <h5>
               位置情報が取得できません
-            </h4>
+            </h5>
           </div>
         </b-col>
       </b-row>
@@ -73,10 +90,12 @@
 
 <script>
 import { faBookmark } from '@fortawesome/free-regular-svg-icons'
-import { faBookmark as faBookmarked, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark as faBookmarked, faListUl, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
+import Gmap from '../components/Gmap'
 
 export default {
   name: 'ResultList',
+  components: { Gmap },
   data () {
     return {
       loaded: false,
@@ -86,7 +105,8 @@ export default {
       order: [
         { text: '近い順', value: null },
         { text: 'おすすめ順', value: '4' }
-      ]
+      ],
+      display: 'list'
     }
   },
   computed: {
@@ -96,8 +116,11 @@ export default {
     faBookmarked () {
       return faBookmarked
     },
-    faSortAlphaDown () {
-      return faSortAlphaDown
+    faListUl () {
+      return faListUl
+    },
+    faMapMarkedAlt () {
+      return faMapMarkedAlt
     }
   },
   created () {
@@ -137,5 +160,21 @@ export default {
   border: none;
   max-height: 120px;
   box-shadow:0 5px 8px #c1c1c1;
+}
+.detailbtn {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-size: 12px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none !important;
+}
+.checked {
+  background-color: #007bff;
+  color: #fafafa;
+}
+.unchecked {
+  background-color: transparent;
+  color: #007bff;
 }
 </style>

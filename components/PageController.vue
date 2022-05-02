@@ -1,7 +1,7 @@
 <template>
   <div class="mx-2" style="position: absolute; bottom: 25px; left: 0; right: 0;">
     <b-container>
-      <b-row class="mx-2 py-2 justify-content-center d-flex align-items-center" style="background-color: rgb(249, 147, 5); border-radius: 50px">
+      <b-row class="mx-3 py-1 justify-content-center d-flex align-items-center" style="background-color: rgb(249, 147, 5); border-radius: 50px">
         <b-col class="text-center">
           <b-button
             v-if="$store.getters.currentPage > 0"
@@ -9,7 +9,7 @@
             class="arrowbtn col-2"
             @click="prevPage()"
           >
-            <fa :icon="faAngleLeft" />
+            <fa :icon="faAngleLeft" class="d-flex align-items-center" />
           </b-button>
         </b-col>
         <b-col class="text-center col-2 d-flex justify-content-center">
@@ -34,7 +34,7 @@
             class="arrowbtn col-2"
             @click="nextPage()"
           >
-            <fa :icon="faAngleRight" />
+            <fa :icon="faAngleRight" class="d-flex align-items-center" />
           </b-button>
         </b-col>
       </b-row>
@@ -93,8 +93,8 @@ export default {
   color: rgb(249, 147, 5);
   border-radius: 50%;
   border: none;
-  max-width: 36px;
-  height: 36px;
+  max-width: 32px;
+  height: 32px;
   box-shadow:0 5px 8px #c07104;
 }
 .arrowbtn:active,

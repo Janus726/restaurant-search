@@ -8,7 +8,9 @@ export const state = () => ({
   parameter: null,
   length: 0,
   detailOpen: false,
-  gpsEnabled: false
+  gpsEnabled: false,
+  userLat: 0,
+  userLng: 0
 })
 
 export const mutations = {
@@ -49,6 +51,10 @@ export const mutations = {
   },
   gpsOn (state, status) {
     state.gpsEnabled = status
+  },
+  setPosition (state, latlng) {
+    state.userLat = latlng.lat
+    state.userLng = latlng.lng
   }
 }
 
@@ -110,6 +116,9 @@ export const actions = {
   },
   gpsOn ({ commit }, status) {
     commit('gpsOn', status)
+  },
+  setPosition ({ commit }, latlng) {
+    commit('setPosition', latlng)
   }
 }
 
@@ -140,5 +149,11 @@ export const getters = {
   },
   gpsStatus (state) {
     return state.gpsEnabled
+  },
+  userLat (state) {
+    return state.userLat
+  },
+  userLng (state) {
+    return state.userLng
   }
 }

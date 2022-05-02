@@ -20,7 +20,7 @@
         </b-button>
       </div>
       <div v-if="searchMode">
-        <Search class="pb-1" style="min-height: 11rem" />
+        <Search class="pb-1" style="min-height: 10rem" />
         <ResultList v-if="searched" style="height: 100vh"/>
         <PageController />
         <ResultDetail
@@ -82,7 +82,7 @@ export default {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           }
-          console.log(this.location)
+          this.$store.dispatch('setPosition', { lat: position.coords.latitude, lng: position.coords.longitude })
           this.searchSpot()
         },
         () => {

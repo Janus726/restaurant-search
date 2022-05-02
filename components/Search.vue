@@ -55,7 +55,7 @@
           class="card px-3 py-4 mt-0 px-md-4"
           style="box-shadow: 0 0 0"
         >
-          <div class="text-left" style="min-height: 200px; font-size: 14px">
+          <div class="text-left" style="height: calc(100vh - (20rem + 50px)); font-size: 14px; overflow: auto">
             <div>
               <p class="mb-1">フリーワード</p>
               <div class="d-flex">
@@ -277,6 +277,7 @@ export default {
             (position) => {
               this.parameter[0].value = position.coords.latitude.toString()
               this.parameter[1].value = position.coords.longitude.toString()
+              this.$store.dispatch('setPosition', { lat: position.coords.latitude, lng: position.coords.longitude })
               this.doSearch()
             },
             () => {
