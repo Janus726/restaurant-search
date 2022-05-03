@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <header
+      class="fixed-top"
+      style="color: #fafafa; height: 25px; background-color: transparent;"
+    >
+      <p class="mt-1 ml-2">メシナビ</p>
+    </header>
     <b-container class="px-0">
       <div class="d-flex mx-4 align-items-end" style="height: 5rem">
         <b-button
