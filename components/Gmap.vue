@@ -1,7 +1,10 @@
 <template>
   <div style="color: #757575; font-family: 'Noto Sans JP', sans-serif;">
     <b-container>
-      <b-row style="height: calc(100vh - (16rem + 75px)); overflow: auto; padding-bottom: 60px;">
+      <b-row
+        style="padding-bottom: 60px;"
+        :style="{ height: `calc(${innerHeight} - (16rem + 75px))`, overflow: 'auto' }"
+      >
         <b-col>
           <GmapMap
             map-type-id="roadmap"
@@ -85,7 +88,8 @@ export default {
         key: '',
         id: ''
       },
-      restaurantList: this.$store.getters.result.results.shop
+      restaurantList: this.$store.getters.result.results.shop,
+      innerHeight: '100vh'
     }
   },
   computed: {
@@ -96,6 +100,9 @@ export default {
       return faBookmarked
     },
     google: gmapApi
+  },
+  mounted () {
+    this.innerHeight = window.innerHeight + 'px'
   },
   methods: {
     selectSpot (lat, lng, key) {
