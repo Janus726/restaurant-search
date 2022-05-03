@@ -55,7 +55,11 @@
           class="card px-3 py-4 mt-0 px-md-4"
           style="box-shadow: 0 0 0"
         >
-          <div class="text-left" style="height: calc(100vh - (20rem + 75px)); font-size: 14px; overflow: auto">
+          <div
+            class="text-left"
+            style="font-size: 14px"
+            :style="{ height: `calc(${innerHeight} - (20rem + 75px))`, overflow: 'auto' }"
+          >
             <div>
               <p class="mb-1">フリーワード</p>
               <div class="d-flex">
@@ -246,7 +250,8 @@ export default {
         maximumAge: 0
       },
       detailOpen: this.$store.getters.detailOpen,
-      buttonPressed: false
+      buttonPressed: false,
+      innerHeight: '100vh'
     }
   },
   computed: {
@@ -261,6 +266,7 @@ export default {
     }
   },
   mounted () {
+    this.innerHeight = window.innerHeight + 'px'
     this.$store.watch((state, getters) => getters.detailOpen,
       (newValue) => {
         this.detailOpen = newValue

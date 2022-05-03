@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <header
-      class="fixed-top"
-      style="color: #fafafa; height: 25px; background-color: transparent;"
+      style="color: #fafafa; position:absolute; top: 0; left: 0; height: 25px; background-color: transparent;"
     >
       <p class="mt-1 ml-2">メシナビ</p>
     </header>

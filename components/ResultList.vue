@@ -29,7 +29,12 @@
           </div>
         </b-col>
       </b-row>
-      <b-row v-if="$store.getters.gpsStatus && display==='list'" class="px-2 justify-content-center align-items-start" style="max-height: calc(100vh - (16rem + 75px)); overflow: auto; padding-bottom: 60px; border-radius: 10px">
+      <b-row
+        v-if="$store.getters.gpsStatus && display==='list'"
+        class="px-2 justify-content-center align-items-start"
+        style="padding-bottom: 60px; border-radius: 10px"
+        :style="{ maxHeight: `calc(${innerHeight} - (16rem + 75px))`, overflow: 'auto' }"
+      >
         <!--      <b-col class="justify-content-center">-->
         <b-col
           v-for="(val, key) in restaurantList"
@@ -106,7 +111,8 @@ export default {
         { text: '近い順', value: null },
         { text: 'おすすめ順', value: '4' }
       ],
-      display: 'list'
+      display: 'list',
+      innerHeight: '100vh'
     }
   },
   computed: {
@@ -128,6 +134,7 @@ export default {
     this.loaded = true
   },
   mounted () {
+    this.innerHeight = window.innerHeight + 'px'
     this.$store.watch((state, getters) => getters.result.results,
       (newValue) => {
         this.restaurantList = newValue.shop
